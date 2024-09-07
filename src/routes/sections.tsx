@@ -16,6 +16,7 @@ export const UserPage = lazy(() => import('src/pages/user'));
 export const SignInPage = lazy(() => import('src/pages/sign-in'));
 export const ProductsPage = lazy(() => import('src/pages/products'));
 export const Page404 = lazy(() => import('src/pages/page-not-found'));
+export const ConnectPage = lazy(() => import('src/pages/connect'));
 
 // ----------------------------------------------------------------------
 
@@ -33,6 +34,8 @@ const renderFallback = (
 );
 
 export function Router() {
+  // console.log('Router loaded'); // Add log to confirm router is loading
+  // const routes = useRoutes([
   return useRoutes([
     {
       element: (
@@ -44,6 +47,7 @@ export function Router() {
       ),
       children: [
         { element: <HomePage />, index: true },
+        { path: 'connect', element: <ConnectPage /> },
         { path: 'user', element: <UserPage /> },
         { path: 'products', element: <ProductsPage /> },
         { path: 'blog', element: <BlogPage /> },
@@ -57,6 +61,10 @@ export function Router() {
         </AuthLayout>
       ),
     },
+    /* {
+      path: 'connect',
+      element: <ConnectPage />,  // Move it here, outside the children property
+    }, */
     {
       path: '404',
       element: <Page404 />,
@@ -66,4 +74,7 @@ export function Router() {
       element: <Navigate to="/404" replace />,
     },
   ]);
+
+  // console.log('Routes:', routes);
+  // return routes;
 }
