@@ -8,18 +8,16 @@ import { useScrollToTop } from 'src/hooks/use-scroll-to-top';
 
 import { ThemeProvider } from 'src/theme/theme-provider';
 
-import { Iconify } from 'src/components/iconify';
-
 // ----------------------------------------------------------------------
 
 export default function App() {
   useScrollToTop();
 
-  const githubButton = (
+  const scrollToTopButton = (
     <Fab
       size="medium"
-      aria-label="Github"
-      href="https://github.com/minimal-ui-kit/material-kit-react"
+      aria-label="Scroll to Top"
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} // Scrolls to top when clicked
       sx={{
         zIndex: 9,
         right: 20,
@@ -31,14 +29,14 @@ export default function App() {
         color: 'common.white',
       }}
     >
-      <Iconify width={24} icon="eva:github-fill" />
+      ↑ {/* This represents an upward arrow for the scroll button */}
     </Fab>
   );
 
   return (
     <ThemeProvider>
       <Router />
-      {githubButton}
+      {scrollToTopButton} {/* Renders the scroll-to-top button */}
     </ThemeProvider>
   );
 }
