@@ -7,7 +7,6 @@ import { ConnectView } from 'src/sections/connect/view';
 // ----------------------------------------------------------------------
 
 export default function Page() {
-  console.log('ConnectPage loaded'); // Debugging log
   return (
     <>
       <Helmet>
