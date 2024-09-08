@@ -9,23 +9,16 @@ import Pagination from '@mui/material/Pagination'; // Pagination component
 
 // Mock data and Layout
 import { _posts } from 'src/_mock';              // _posts is mock data representing blog posts
+import { mockExchanges } from 'src/_mock/_exchanges';
 import { DashboardContent } from 'src/layouts/dashboard';  // Custom dashboard layout component
 
 // Icons and Other Components
 import { Iconify } from 'src/components/iconify';        // Icon component for handling various icon packs
-import { PostItem, PostItemProps } from '../post-item';  // Custom component for rendering a post item (blog post)
+import { PostItem } from '../post-item';  // Custom component for rendering a post item (blog post)
 import { PostSort } from '../post-sort';                 // Dropdown to sort posts (e.g. latest, popular, etc.)
 import { PostSearch } from '../post-search';             // Search bar to filter posts
 
 // ----------------------------------------------------------------------
-
-// Mock data or data fetched from an API
-const mockPosts: PostItemProps[] = [
-  { id: '1', title: 'Binance', coverUrl: '/exchange-icons/binance.svg', postedAt: null },
-  { id: '2', title: 'Coinbase', coverUrl: '/exchange-icons/coinbase.svg', postedAt: null },
-  { id: '3', title: 'Kraken', coverUrl: '/exchange-icons/kraken.svg', postedAt: null },
-  // Add more exchanges
-];
 
 // The main functional component of the page
 export function ConnectView() {
@@ -39,7 +32,7 @@ export function ConnectView() {
         ? prevSelected.filter((selectedId) => selectedId !== id)  // Deselect if already selected
         : [...prevSelected, id]  // Add to selection if not already selected
     );
-  };  // <---- Closing brace was missing here
+  };
 
   // React state to keep track of the sorting method selected (default is 'latest')
   const [sortBy, setSortBy] = useState('latest');
@@ -74,7 +67,7 @@ export function ConnectView() {
       <Box display="flex" alignItems="center" justifyContent="space-between" sx={{ mb: 5 }}>
         
         {/* Search Bar */}
-        <PostSearch posts={mockPosts} />  {/* Search bar for filtering posts */}
+        <PostSearch posts={mockExchanges} />  {/* Search bar for filtering posts */}
 
         {/* Sort Dropdown */}
         <PostSort
@@ -90,8 +83,8 @@ export function ConnectView() {
 
       {/* Post Grid Section */}
       <Grid container spacing={2}>
-        {/* Mapping over the mockPosts data and rendering each post in a grid */}
-        {mockPosts.map((post, index) => {
+        {/* Mapping over the mockExchanges data and rendering each post in a grid */}
+        {mockExchanges.map((post, index) => {
           const isSelected = selectedIds.includes(post.id);
 
           return (

@@ -64,7 +64,7 @@ export function PostItem({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        backgroundColor: selected ? 'green' : 'common.white',  // Turns green when selected
+        backgroundColor: selected ? '#7CDF7C' : 'common.white',  // Turns green when selected
         cursor: 'pointer',  // Shows that the box is clickable
         ...sx,
       }}
