@@ -35,7 +35,7 @@ const renderFallback = (
 
 export function Router() {
   // console.log('Router loaded'); // Add log to confirm router is loading
-  // const routes = useRoutes([
+  // const routes = useRoutes([     ------ Debugging
   return useRoutes([
     {
       element: (
@@ -62,7 +62,7 @@ export function Router() {
       ),
     },
     /* {
-      path: 'connect',
+      path: 'connect',      ------ Debugging
       element: <ConnectPage />,  // Move it here, outside the children property
     }, */
     {
@@ -76,5 +76,5 @@ export function Router() {
   ]);
 
   // console.log('Routes:', routes);
-  // return routes;
+  // return routes;       ------ Debugging
 }

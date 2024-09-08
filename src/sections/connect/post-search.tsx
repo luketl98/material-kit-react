@@ -18,7 +18,7 @@ type PostSearchProps = {
 export function PostSearch({ posts, sx }: PostSearchProps) {
   return (
     <Autocomplete
-      sx={{ width: 280 }}
+      sx={{ width: 380 }}
       autoHighlight
       popupIcon={null}
       slotProps={{
@@ -38,14 +38,14 @@ export function PostSearch({ posts, sx }: PostSearchProps) {
       renderInput={(params) => (
         <TextField
           {...params}
-          placeholder="Search post..."
+          placeholder="Type Exchange, wallet, blockchain..."
           InputProps={{
             ...params.InputProps,
             startAdornment: (
               <InputAdornment position="start">
                 <Iconify
                   icon="eva:search-fill"
-                  sx={{ ml: 1, width: 20, height: 20, color: 'text.disabled' }}
+                  sx={{ ml: 1, width: 30, height: 20, color: 'text.disabled' }}
                 />
               </InputAdornment>
             ),
