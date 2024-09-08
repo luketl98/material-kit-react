@@ -70,7 +70,7 @@ export function ConnectView() {
       </Box>
 
       {/* Post Grid Section */}
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
         {/* Mapping over the _posts mock data and rendering each post in a grid */}
         {_posts.map((post, index) => {
           // REMOVE -- const latestPostLarge = index === 0;   // The first post is treated as a 'large' post
@@ -82,8 +82,6 @@ export function ConnectView() {
 
               <PostItem 
                 post={post}                // Post data passed to PostItem component
-                // Remove latestPost={latestPost}     // If true, gives different styling to highlight the post
-                // REMOVE -- latestPostLarge={latestPostLarge} // Large layout for the first post
               />
             </Grid>
           );

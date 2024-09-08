@@ -3,15 +3,10 @@ import type { CardProps } from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
-import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 
 import { fDate } from 'src/utils/format-time';
-// import { fShortenNumber } from 'src/utils/format-number'; -- Unused after editing blog boxes
 
-// import { varAlpha } from 'src/theme/styles'; --- ""
-
-// import { Iconify } from 'src/components/iconify'; --- ""
 import { SvgColor } from 'src/components/svg-color';
 
 // ----------------------------------------------------------------------
@@ -28,7 +23,6 @@ export type PostItemProps = {
   postedAt: string | number | null;
   author: {
     name: string;
-    avatarUrl: string;
   };
 };
 
@@ -39,18 +33,6 @@ export function PostItem({
 }: CardProps & {
   post: PostItemProps;
 }) {
-  const renderAvatar = (
-    <Avatar
-      alt={post.author.name}
-      src={post.author.avatarUrl}
-      sx={{
-        left: 24,
-        zIndex: 9,
-        bottom: -24,
-        position: 'absolute',
-      }}
-    />
-  );
 
   const renderTitle = (
     <Link
@@ -121,7 +103,6 @@ export function PostItem({
         })}
       >
         {renderShape}
-        {renderAvatar}
         {renderCover}
       </Box>
 
